@@ -73,7 +73,7 @@ function collectTurnMessages(eventMessages: unknown[]): ChatChunk[] {
 }
 
 function isCaptureEvent(event: { messages?: unknown[]; success?: boolean }): boolean {
-  if (!event.success) return false;
+  if (event.success === false) return false;
   if (!Array.isArray(event.messages)) return false;
   return event.messages.length > 0;
 }
